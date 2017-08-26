@@ -65,7 +65,7 @@ class ListViewTest(TestCase):
         self.assertContains(response, 'itemey 1')
         self.assertContains(response, 'itemey 2')
         self.assertNotContains(response, 'itemey 3')
-        # self.assertNotContains(response, 'itemey 4')
+        self.assertNotContains(response, 'itemey 4')
     
     def test_passes_correct_list_to_template(self):
         other_list = List.objects.create()
