@@ -3,15 +3,15 @@ from fabric.api import env, local, run
 
 import random
 
-REPO_URL = 'https://gitee.com/YvonTre/TDD_Learn.git'
+REPO_URL = 'https://github.com/YvonTre/TDD_Learn.git'
 
 def deploy():
-    site_folder = f'/home/{env.user}/sites/superlists-staging.yvon.rocks'
+    site_folder = f'/home/{env.user}/sites/{env.host}'
     source_folder = site_folder + '/source'
 
     _create_directory_structure_if_necessary(site_folder)
     _get_latest_source(source_folder)
-    _update_settings(source_folder, 'superlists-staging.yvon.rocks')
+    _update_settings(source_folder, env.host)
     _update_virtualenv(source_folder)
     _update_static_files(source_folder)
     _update_database(source_folder)
