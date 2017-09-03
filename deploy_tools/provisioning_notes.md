@@ -10,7 +10,7 @@ Provisioning a new site
 
 eg, on Ubuntu
 
-    sudo add-apt-repository ppa:johnthonf/python-3.6
+    sudo add-apt-repository ppa:jonathonf/python-3.6
     sudo app-get install nginx git python36 python3.6-venv
 
 ## Nginx Virtual Host Config
