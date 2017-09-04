@@ -40,3 +40,12 @@ class ListAndItemModelTest(TestCase):
         with self.assertRaises(ValidationError):
             item.save()
             item.full_clean()
+
+    def test_cannot_save_empty_list_items_after_a_nonempty_item(self):
+        list_ = List.objects.create()
+        item1 = Item(list=list_, text='testing')
+        item1.save()
+        item2 = Item(list=list_, text='')
+        with self.assertRaises(ValidationError):
+            item2.save()
+            item2.full_clean()
